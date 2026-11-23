@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Johnatan Flores · Dados, Automação e Desenvolvimento</title>
+<meta name="description" content="Portfólio de Johnatan Flores: engenharia de dados com Databricks, automação (RPA, Python) e projetos full-stack.">
+<meta property="og:title" content="Johnatan Flores · Portfólio">
+<meta property="og:description" content="Projetos full-stack com .NET, React e TypeScript.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#topo">johnatan<span>.dev</span></a>
+    <nav aria-label="Principal">
+      <a class="opt" href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a class="opt" href="#experiencia">Atuação</a>
+      <a class="opt" href="#contato">Contato</a>
+      <button id="tema" type="button" aria-label="Alternar tema claro/escuro">🌓</button>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Olá, eu sou Johnatan Flores</span>
+      <h1>Transformo dados em <em>plataformas</em>, automatizo processos e construo aplicações web.</h1>
+      <p>Estudante de Análise e Desenvolvimento de Sistemas, com foco em dados no Databricks, automações com RPA e Python, e projetos full-stack com .NET, React e Tailwind CSS.</p>
+      <div class="cta">
+        <a class="btn main" href="#projetos">Ver projetos</a>
+        <a class="btn" href="curriculo.pdf" download>Baixar currículo</a>
+        <a class="btn" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap sobre">
+      <div>
+        <!-- Coloque sua foto em img/foto.jpg (quadrada, ~400x400). Sem o arquivo, aparecem as iniciais. -->
+        <div class="foto"><span aria-hidden="true">JF</span><img src="img/foto.jpg" alt="Foto de Johnatan Flores" onerror="this.remove()"></div>
+        <span class="eyebrow">Sobre</span>
+        <h2>Quem sou eu</h2>
+        <!-- EDITE: ajuste o texto com a sua voz -->
+        <p>Sou estudante de Análise e Desenvolvimento de Sistemas e gosto de trabalhar com dados e automação: pipelines e dashboards no Databricks, RPA e scripts em Python que tiram tarefas repetitivas das mãos das pessoas.</p>
+        <p>Fora do trabalho, gosto de tirar ideias do papel. Meus projetos pessoais combinam back-end em C#, front-end com React e Tailwind CSS e integração com APIs externas, sempre com testes, documentação e deploy no ar.</p>
+        <p>Busco uma oportunidade para crescer em desenvolvimento e automação, aprendendo com um time e entregando coisas que as pessoas realmente usam.</p>
+      </div>
+      <div>
+        <div class="grupo"><h3>Dados</h3>
+          <ul class="chips"><li>Databricks</li><li>Delta Lake</li><li>SQL</li><li>Python</li><li>Arquitetura Medallion</li><li>Qualidade de dados</li></ul></div>
+        <div class="grupo"><h3>Automação</h3>
+          <ul class="chips"><li>RPA</li><li>Automação de processos</li></ul></div>
+        <div class="grupo"><h3>Back-end</h3>
+          <ul class="chips"><li>C#</li><li>.NET</li><li>ASP.NET Core</li><li>REST APIs</li><li>xUnit</li></ul></div>
+        <div class="grupo"><h3>Front-end</h3>
+          <ul class="chips"><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Vite</li></ul></div>
+        <div class="grupo"><h3>Ferramentas</h3>
+          <ul class="chips"><li>Git e GitHub</li><li>Docker</li><li>Vercel</li><li>Render</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Projetos em destaque</h2>
+      <p class="sub">Uma seleção do que construí, com código aberto e demonstração online quando disponível.</p>
+
+      <div class="grade">
+        <article class="card dest">
+          <img class="shot" src="https://raw.githubusercontent.com/johnatantech/varejo-data-platform/main/docs/dashboard_visao_geral.png" alt="Dashboard operacional da plataforma de monitoramento de e-commerce" loading="lazy" onerror="this.remove()">
+          <div class="corpo" style="display:flex;flex-direction:column;gap:14px">
+            <span class="tag">Dados · Databricks</span>
+            <h3>Plataforma de Monitoramento de E-commerce</h3>
+            <p>Pipeline de dados de ponta a ponta no Databricks, sobre cerca de 100 mil pedidos reais de um marketplace brasileiro. Arquitetura Medallion (bronze, silver e gold), 15 regras de qualidade de dados, detecção de anomalias com alertas e dashboard operacional, tudo orquestrado por um Workflow.</p>
+            <dl class="metricas">
+              <div><dt>Pedidos analisados</dt><dd>98 mil</dd></div>
+              <div><dt>Regras de qualidade</dt><dd>15</dd></div>
+              <div><dt>Camadas</dt><dd>3</dd></div>
+            </dl>
+            <p>Detectou a Black Friday de 2017 automaticamente, comparando o volume diário com a média móvel de 28 dias.</p>
+            <ul><li>Databricks</li><li>Delta Lake</li><li>SQL</li><li>Python</li><li>Unity Catalog</li><li>Workflows</li><li>Qualidade de dados</li></ul>
+            <div class="links">
+              <a href="https://github.com/johnatantech/varejo-data-platform" target="_blank" rel="noopener">Código e documentação ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card dest">
+          <img class="shot" src="img/receitas.png" alt="Tela do app Receitas por ingredientes" loading="lazy" onerror="this.remove()">
+          <div class="corpo" style="display:flex;flex-direction:column;gap:14px">
+            <span class="tag">Full-stack · Online</span>
+            <h3>Receitas por ingredientes</h3>
+            <p>Informe o que tem na geladeira e veja receitas ranqueadas por compatibilidade, com o que você já tem e o que falta. Entrada em português, modo de preparo traduzido e busca compartilhável pela URL.</p>
+            <ul><li>.NET 10</li><li>React</li><li>TypeScript</li><li>Tailwind</li><li>Docker</li><li>xUnit</li></ul>
+            <div class="links">
+              <a href="https://receitas-app-eta.vercel.app" target="_blank" rel="noopener">Ver demo ↗</a>
+              <a href="https://github.com/johnatantech/receitas-app" target="_blank" rel="noopener">Código ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="shot" src="img/dashboard.jpg" alt="Tela do Dashboard de esportes" loading="lazy" onerror="this.remove()">
+          <span class="tag">Dashboard</span>
+          <h3>Dashboard de esportes</h3>
+          <!-- EDITE: descreva o objetivo, os dados usados e o resultado -->
+          <p>Painel interativo para acompanhar dados esportivos, com visualizações e filtros.</p>
+          <ul><li>Dados</li><li>Visualização</li><li>Front-end</li></ul>
+          <div class="links">
+            <a href="https://github.com/johnatantech/dashboard-esportes" target="_blank" rel="noopener">Código ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="shot" src="img/careerhub.png" alt="Protótipo do CareerHub" loading="lazy" onerror="this.remove()">
+          <span class="tag">Protótipo</span>
+          <h3>CareerHub</h3>
+          <!-- EDITE: descreva o problema que o projeto resolve e coloque o link certo -->
+          <p>Protótipo de plataforma para organizar a busca por oportunidades de carreira.</p>
+          <ul><li>Produto</li><li>UX</li><li>Protótipo</li></ul>
+          <div class="links">
+            <a href="https://github.com/johnatantech" target="_blank" rel="noopener">Ver no GitHub ↗</a>
+          </div>
+        </article>
+      </div>
+      <p class="nota">Veja todos os repositórios em <a href="https://github.com/johnatantech" target="_blank" rel="noopener" style="color:var(--accent)">github.com/johnatantech</a>.</p>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap dois">
+      <div>
+        <span class="eyebrow">Atuação</span>
+        <h2>Onde eu atuo</h2>
+        <p class="sub">As três frentes em que mais me dedico.</p>
+        <div class="linha">
+          <!-- EDITE: ajuste os textos com a sua realidade -->
+          <div class="item">
+            <h3>Dados e Databricks</h3>
+            <p>Construo pipelines no Databricks com arquitetura Medallion, regras de qualidade, monitoramento e dashboards, transformando dados brutos em indicadores confiáveis para a operação.</p>
+          </div>
+          <div class="item">
+            <h3>Automação e RPA</h3>
+            <p>Transformo tarefas manuais e repetitivas em fluxos automatizados, com RPA e scripts em Python, para reduzir erros e liberar tempo das equipes.</p>
+          </div>
+          <div class="item">
+            <h3>Desenvolvimento web</h3>
+            <p>Crio aplicações completas com .NET, React, TypeScript e Tailwind CSS, com testes automatizados, documentação e deploy em nuvem.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Estudos</span>
+        <h2>Formação</h2>
+        <p class="sub">Sempre aprendendo.</p>
+        <div class="linha">
+          <div class="item">
+            <h3>Análise e Desenvolvimento de Sistemas</h3>
+            <p class="quando">Universidade de Santo Amaro (UNISA) · cursando, conclusão em 2028</p>
+            <p>Graduação tecnológica com foco em programação, banco de dados, engenharia de software e projeto de sistemas.</p>
+          </div>
+          <div class="item">
+            <h3>Cursos e certificações</h3>
+            <p class="quando">Complementares</p>
+            <ul>
+              <li><strong>Santander Open Academy:</strong> Python e Data Analyst</li>
+              <li><strong>Microsoft Learn:</strong> Azure Fundamentals, Microsoft 365, Power Platform, Security, Compliance &amp; Identity e GitHub Foundations</li>
+              <li><strong>Alura:</strong> Python para Dados, AI Native Software Engineering, Desenvolvimento Back-End com Node.js, Desenvolvimento Back-End com .NET, Liderança, Governança de Dados e IA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="wrap">
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos conversar?</h2>
+      <p class="sub">Estou aberto a oportunidades e a conversas sobre projetos. O caminho mais rápido é pelo LinkedIn.</p>
+      <div class="cta">
+        <a class="btn main" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">Falar no LinkedIn</a>
+        <a class="btn" href="curriculo.pdf" download>Baixar currículo</a>
+        <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="ano">2026</span> Johnatan Flores. Feito com HTML, CSS e um pouco de café.</div>
+</footer>
+
+<script>
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+  // Tema: segue o sistema e lembra a escolha manual (sem quebrar se o storage estiver bloqueado)
+  const raiz = document.documentElement;
+  try {
+    const salvo = localStorage.getItem("tema");
+    if (salvo) raiz.dataset.theme = salvo;
+  } catch (e) {}
+
+  document.getElementById("tema").addEventListener("click", () => {
+    const escuro = raiz.dataset.theme
+      ? raiz.dataset.theme === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    const novo = escuro ? "light" : "dark";
+    raiz.dataset.theme = novo;
+    try { localStorage.setItem("tema", novo); } catch (e) {}
+  });
+</script>
+</body>
+</html>
