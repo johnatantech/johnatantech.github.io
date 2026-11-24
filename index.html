@@ -3,219 +3,489 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Johnatan Flores · Dados, Automação e Desenvolvimento</title>
-<meta name="description" content="Portfólio de Johnatan Flores: engenharia de dados com Databricks, automação (RPA, Python) e projetos full-stack.">
-<meta property="og:title" content="Johnatan Flores · Portfólio">
-<meta property="og:description" content="Projetos full-stack com .NET, React e TypeScript.">
+<title>Johnatan Flores | Dados, Automação, Desenvolvimento e Educação</title>
+<meta name="description" content="Portfólio de Johnatan Flores: engenharia de dados com Databricks, automação com RPA e Python, aplicações com .NET e Angular, e educação em tecnologia.">
+<meta property="og:title" content="Johnatan Flores | Portfólio">
+<meta property="og:description" content="Dados, automação, desenvolvimento web e educação em tecnologia.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#0A0814">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230A0814%22/><text x=%2250%22 y=%2266%22 font-size=%2244%22 font-family=%22monospace%22 font-weight=%22700%22 fill=%22%23A855F7%22 text-anchor=%22middle%22>JF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fundo: #0A0814; --superficie: #14101F; --superficie-2: #1B1530; --linha: rgba(168,85,247,0.16);
+  --texto: #E8E5F0; --suave: #B8B3C9; --apagado: #8B859B;
+  --roxo: #A855F7; --roxo-forte: #7C3AED; --rosa: #E879F9; --verde: #4ADE80;
+  --sans: "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+  --mono: "Fira Code", "Courier New", monospace;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--fundo); color: var(--texto); font-family: var(--sans); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--roxo); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1160px, 100% - 2.5rem); margin-inline: auto; }
+h1, h2, h3, p { margin: 0; }
+.roxo { color: var(--roxo); }
+
+/* Cabeçalho */
+header { position: sticky; top: 0; z-index: 30; background: rgba(10,8,20,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.bar { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { font-family: var(--mono); font-weight: 500; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.logo b { color: var(--roxo); font-weight: 500; }
+nav { display: flex; gap: 0.25rem; }
+nav a { padding: 0.45rem 0.8rem; font-size: 0.95rem; color: var(--suave); border-radius: 6px; }
+nav a:hover { color: var(--texto); background: rgba(168,85,247,0.08); }
+@media (max-width: 760px) { nav .opt { display: none; } }
+
+/* Hero */
+.hero { position: relative; min-height: calc(100svh - 68px); display: flex; align-items: center; padding-block: 4rem; overflow: hidden; }
+#rede { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero::before { content: ""; position: absolute; width: 720px; height: 720px; left: -200px; top: -260px; background: radial-gradient(circle, rgba(124,58,237,0.28), transparent 65%); pointer-events: none; }
+.hero::after { content: ""; position: absolute; width: 640px; height: 640px; right: -220px; bottom: -280px; background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 65%); pointer-events: none; }
+.hero .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; }
+.prompt { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.85rem; color: var(--suave); padding: 0.35rem 0.75rem; border: 1px solid var(--linha); background: rgba(168,85,247,0.06); border-radius: 6px; }
+.prompt::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--roxo); }
+.cursor { display: inline-block; width: 0.55em; color: var(--roxo); animation: pisca 1s steps(1) infinite; }
+@keyframes pisca { 50% { opacity: 0; } }
+.hero h1 { font-size: clamp(3.2rem, 9vw, 6.2rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin-top: 1.5rem; }
+.hero h1 span { display: block; }
+.hero h1 .roxo { background: linear-gradient(90deg, var(--roxo), var(--rosa)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.papel { font-family: var(--mono); font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: var(--roxo); margin-top: 1.25rem; min-height: 1.6em; letter-spacing: 0.04em; }
+.bio { color: var(--suave); max-width: 54ch; margin-top: 1rem; }
+.status { display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 1.5rem; font-size: 0.9rem; color: var(--verde); padding: 0.35rem 0.9rem; border-radius: 999px; background: rgba(22,163,74,0.08); border: 1px solid rgba(74,222,128,0.2); }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--verde); box-shadow: 0 0 0 0 rgba(74,222,128,0.6); animation: pulso 2s infinite; }
+@keyframes pulso { 70% { box-shadow: 0 0 0 8px rgba(74,222,128,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 46px; padding: 0 1.3rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); transition: border-color .2s, background .2s; }
+.btn:hover { border-color: var(--roxo); }
+.btn.main { background: var(--roxo-forte); border-color: var(--roxo-forte); box-shadow: 0 8px 28px rgba(124,58,237,0.35); }
+.btn.main:hover { background: var(--roxo); }
+.btn svg { width: 14px; height: 14px; }
+
+.avatar { justify-self: center; position: relative; width: min(300px, 70vw); aspect-ratio: 1; }
+.avatar .anel { position: absolute; inset: -28px; border-radius: 50%; border: 1px solid var(--linha); }
+.avatar .foto { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; border: 3px solid var(--roxo); box-shadow: 0 0 60px rgba(168,85,247,0.35); background: var(--superficie-2); display: grid; place-items: center; font-family: var(--mono); font-size: 3rem; color: var(--roxo); }
+.avatar .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.avatar .online { position: absolute; right: 2%; bottom: 12%; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; color: var(--verde); background: var(--fundo); border: 1px solid rgba(74,222,128,0.35); padding: 0.2rem 0.6rem; border-radius: 999px; display: flex; align-items: center; gap: 0.4rem; }
+.avatar .online::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--verde); }
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .avatar { order: -1; width: 180px; justify-self: start; margin-left: 28px; margin-top: 28px; }
+}
+
+/* Seções */
+section.bloco { padding-block: clamp(4.5rem, 10vw, 7.5rem); }
+.rotulo { display: inline-block; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--roxo); border: 1px solid var(--linha); background: rgba(168,85,247,0.06); padding: 0.3rem 0.7rem; border-radius: 4px; }
+.titulo { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; margin-top: 1rem; }
+.sub { color: var(--suave); max-width: 58ch; margin-top: 1rem; }
+
+/* Sobre */
+.sobre { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; margin-top: 2.75rem; align-items: start; }
+.sobre .texto p + p { margin-top: 1rem; }
+.sobre .texto p { color: var(--suave); }
+.sobre .texto .lead { color: var(--texto); font-size: 1.2rem; }
+.sobre strong { color: var(--texto); font-weight: 600; }
+.fatos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.fato { background: var(--superficie); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.1rem 1.2rem; }
+.fato.grande { grid-column: 1 / -1; display: flex; align-items: center; gap: 1.1rem; border-left: 3px solid var(--roxo); }
+.fato.grande b { font-size: 2.8rem; font-weight: 800; color: var(--roxo); line-height: 1; }
+.fato small { display: block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--roxo); margin-bottom: 0.4rem; }
+.fato span { font-weight: 600; font-size: 0.98rem; }
+.fato.largo { grid-column: 1 / -1; }
+@media (max-width: 860px) { .sobre { grid-template-columns: 1fr; } }
+
+/* Stack */
+.faixa { margin-top: 2.75rem; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.trilho { display: flex; gap: 0.75rem; width: max-content; animation: corre 45s linear infinite; }
+.faixa:hover .trilho { animation-play-state: paused; }
+.trilho span { font-family: var(--mono); font-size: 0.92rem; color: var(--suave); padding: 0.55rem 1rem; border: 1px solid var(--linha); background: var(--superficie); border-radius: 8px; white-space: nowrap; }
+@keyframes corre { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .trilho { animation: none; flex-wrap: wrap; width: auto; } .faixa { mask-image: none; -webkit-mask-image: none; } .trilho [aria-hidden] { display: none; } }
+
+/* Projetos */
+.projetos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 2.75rem; }
+.card { position: relative; background: var(--superficie); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; overflow: hidden; transition: border-color .25s; }
+.card:hover { border-color: rgba(168,85,247,0.45); }
+.card::after { content: ""; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(168,85,247,0.14), transparent 70%); pointer-events: none; }
+.meta { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--apagado); }
+.meta b { color: var(--roxo); font-weight: 500; margin-right: 0.5rem; }
+.card h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin-top: 0.6rem; }
+.card p { color: var(--suave); font-size: 0.97rem; margin-top: 0.6rem; }
+.card .links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: auto; padding-top: 1.25rem; }
+.card .links a { font-family: var(--mono); font-size: 0.85rem; color: var(--roxo); display: inline-flex; align-items: center; gap: 0.35rem; }
+.card .links a:hover { color: var(--rosa); }
+.card .links svg { width: 13px; height: 13px; }
+.card.destaque { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; padding: 1.75rem; }
+.card.destaque .info { display: flex; flex-direction: column; }
+.card.destaque h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.card.destaque .tela { border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: var(--superficie-2); align-self: center; }
+.card.destaque .tela img { width: 100%; }
+.card.destaque .tela.par { display: flex; gap: 0.75rem; padding: 1rem 1rem 0; max-height: 400px; align-items: flex-start; background: linear-gradient(160deg, rgba(124,58,237,0.35), rgba(232,121,249,0.15)); }
+.card.destaque .tela.par img { width: 50%; border-radius: 10px 10px 0 0; }
+.card.destaque .tela.par img + img { margin-top: 2rem; }
+.numeros { display: flex; gap: 1.75rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.numeros div b { display: block; font-size: 1.6rem; font-weight: 800; color: var(--texto); line-height: 1.1; }
+.numeros div span { font-size: 0.82rem; color: var(--apagado); }
+.card .miniatura { margin: -1.5rem -1.5rem 1.25rem; aspect-ratio: 16 / 8; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.06); background: var(--superficie-2); }
+.card .miniatura img { width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0.85; transition: opacity .25s; }
+.card:hover .miniatura img { opacity: 1; }
+.nota { margin-top: 2rem; color: var(--apagado); font-size: 0.95rem; }
+.nota a { color: var(--roxo); font-family: var(--mono); }
+@media (max-width: 860px) {
+  .projetos { grid-template-columns: 1fr; }
+  .card.destaque { grid-template-columns: 1fr; }
+  .card.destaque.inverte .tela { order: -1; }
+}
+.card.destaque.inverte .tela { order: 2; }
+@media (max-width: 860px) { .card.destaque.inverte .tela { order: -1; } }
+
+/* Atuação */
+.frentes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.75rem; }
+.frente { background: var(--superficie); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.4rem; }
+.frente .ico { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: rgba(168,85,247,0.12); color: var(--roxo); font-family: var(--mono); font-size: 1rem; margin-bottom: 1rem; }
+.frente h3 { font-size: 1.1rem; font-weight: 700; }
+.frente p { color: var(--suave); font-size: 0.95rem; margin-top: 0.5rem; }
+@media (max-width: 960px) { .frentes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .frentes { grid-template-columns: 1fr; } }
+
+/* Formação */
+.linha-tempo { margin-top: 2.75rem; border-left: 1px solid var(--linha); padding-left: 2rem; display: grid; gap: 1.5rem; }
+.marco { position: relative; background: var(--superficie); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.4rem 1.5rem; }
+.marco::before { content: ""; position: absolute; left: calc(-2rem - 6px); top: 1.7rem; width: 11px; height: 11px; border-radius: 50%; background: var(--roxo); box-shadow: 0 0 0 4px rgba(168,85,247,0.18); }
+.marco .quando { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--roxo); }
+.marco h3 { font-size: 1.2rem; font-weight: 700; margin-top: 0.35rem; }
+.marco .onde { color: var(--apagado); font-family: var(--mono); font-size: 0.85rem; }
+.marco p, .marco ul { color: var(--suave); margin-top: 0.6rem; font-size: 0.97rem; }
+.marco ul { list-style: none; padding: 0; }
+.marco li { padding-left: 1.4rem; position: relative; }
+.marco li + li { margin-top: 0.45rem; }
+.marco li::before { content: "◇"; position: absolute; left: 0; color: var(--roxo); font-size: 0.8rem; top: 0.15rem; }
+.marco strong { color: var(--texto); font-weight: 600; }
+
+/* Contato */
+.contato { text-align: center; }
+.contato .caixa { position: relative; background: var(--superficie); border: 1px solid var(--linha); border-radius: 18px; padding: clamp(2.5rem, 6vw, 4rem) 1.5rem; overflow: hidden; }
+.contato .caixa::before { content: ""; position: absolute; inset: auto 0 -60% 0; height: 100%; background: radial-gradient(ellipse at center, rgba(124,58,237,0.3), transparent 65%); pointer-events: none; }
+.contato .caixa > * { position: relative; }
+.contato .sub { margin-inline: auto; }
+.contato .cta { justify-content: center; }
+footer { border-top: 1px solid rgba(255,255,255,0.05); padding-block: 2rem; color: var(--apagado); font-size: 0.9rem; font-family: var(--mono); }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+</style>
 </head>
 <body>
 
 <header>
   <div class="wrap bar">
-    <a class="logo" href="#topo">johnatan<span>.dev</span></a>
+    <a class="logo" href="#topo"><b>&lt;/&gt;</b> johnatan.dev</a>
     <nav aria-label="Principal">
       <a class="opt" href="#sobre">Sobre</a>
+      <a class="opt" href="#stack">Stack</a>
       <a href="#projetos">Projetos</a>
-      <a class="opt" href="#experiencia">Atuação</a>
-      <a class="opt" href="#contato">Contato</a>
-      <button id="tema" type="button" aria-label="Alternar tema claro/escuro">🌓</button>
+      <a class="opt" href="#experiencia">Experiência</a>
+      <a class="opt" href="#atuacao">Atuação</a>
+      <a href="#contato">Contato</a>
     </nav>
   </div>
 </header>
 
 <main id="topo">
   <section class="hero">
+    <canvas id="rede" aria-hidden="true"></canvas>
     <div class="wrap">
-      <span class="eyebrow">Olá, eu sou Johnatan Flores</span>
-      <h1>Transformo dados em <em>plataformas</em>, automatizo processos e construo aplicações web.</h1>
-      <p>Estudante de Análise e Desenvolvimento de Sistemas, com foco em dados no Databricks, automações com RPA e Python, e projetos full-stack com .NET, React e Tailwind CSS.</p>
-      <div class="cta">
-        <a class="btn main" href="#projetos">Ver projetos</a>
-        <a class="btn" href="curriculo.pdf" download>Baixar currículo</a>
-        <a class="btn" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="sobre">
-    <div class="wrap sobre">
       <div>
-        <!-- Coloque sua foto em img/foto.jpg (quadrada, ~400x400). Sem o arquivo, aparecem as iniciais. -->
+        <span class="prompt">johnatan@dev:~$ <span class="cursor">_</span></span>
+        <h1><span>Johnatan</span><span class="roxo">Flores.</span></h1>
+        <p class="papel"><span id="papel">Engenharia de Dados</span><span class="cursor" aria-hidden="true">|</span></p>
+        <p class="bio">Trabalho com dados, automação e desenvolvimento web, e sou educador em tecnologia. Construo pipelines no Databricks, robôs em Python e aplicações completas com .NET e Angular.</p>
+        <span class="status">Aberto a novas oportunidades</span>
+        <div class="cta">
+          <a class="btn main" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn" href="curriculo.pdf" download>Currículo</a>
+        </div>
+      </div>
+      <div class="avatar">
+        <div class="anel"></div>
         <div class="foto"><span aria-hidden="true">JF</span><img src="img/foto.jpg" alt="Foto de Johnatan Flores" onerror="this.remove()"></div>
-        <span class="eyebrow">Sobre</span>
-        <h2>Quem sou eu</h2>
-        <!-- EDITE: ajuste o texto com a sua voz -->
-        <p>Sou estudante de Análise e Desenvolvimento de Sistemas e gosto de trabalhar com dados e automação: pipelines e dashboards no Databricks, RPA e scripts em Python que tiram tarefas repetitivas das mãos das pessoas.</p>
-        <p>Fora do trabalho, gosto de tirar ideias do papel. Meus projetos pessoais combinam back-end em C#, front-end com React e Tailwind CSS e integração com APIs externas, sempre com testes, documentação e deploy no ar.</p>
-        <p>Busco uma oportunidade para crescer em desenvolvimento e automação, aprendendo com um time e entregando coisas que as pessoas realmente usam.</p>
-      </div>
-      <div>
-        <div class="grupo"><h3>Dados</h3>
-          <ul class="chips"><li>Databricks</li><li>Delta Lake</li><li>SQL</li><li>Python</li><li>Arquitetura Medallion</li><li>Qualidade de dados</li></ul></div>
-        <div class="grupo"><h3>Automação</h3>
-          <ul class="chips"><li>RPA</li><li>Automação de processos</li></ul></div>
-        <div class="grupo"><h3>Back-end</h3>
-          <ul class="chips"><li>C#</li><li>.NET</li><li>ASP.NET Core</li><li>REST APIs</li><li>xUnit</li></ul></div>
-        <div class="grupo"><h3>Front-end</h3>
-          <ul class="chips"><li>React</li><li>TypeScript</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Vite</li></ul></div>
-        <div class="grupo"><h3>Ferramentas</h3>
-          <ul class="chips"><li>Git e GitHub</li><li>Docker</li><li>Vercel</li><li>Render</li></ul></div>
+        <span class="online">ONLINE</span>
       </div>
     </div>
   </section>
 
-  <section id="projetos">
+  <section id="sobre" class="bloco">
     <div class="wrap">
-      <span class="eyebrow">Portfólio</span>
-      <h2>Projetos em destaque</h2>
-      <p class="sub">Uma seleção do que construí, com código aberto e demonstração online quando disponível.</p>
+      <span class="rotulo">[ 01 ] Sobre</span>
+      <h2 class="titulo">Um pouco <span class="roxo">sobre mim</span></h2>
+      <div class="sobre">
+        <div class="texto">
+          <p class="lead">Sou <strong>Johnatan Flores</strong>, estudante de Análise e Desenvolvimento de Sistemas, com foco em dados, automação e desenvolvimento web.</p>
+          <p>Construo pipelines e dashboards no <strong>Databricks</strong>, robôs de RPA e scripts em <strong>Python</strong> que tiram tarefas repetitivas das mãos das pessoas, e aplicações completas com <strong>.NET, Angular e React</strong>, sempre com testes, documentação e deploy no ar.</p>
+          <p>Também sou <strong>educador em tecnologia</strong>: ministro treinamentos e aulas particulares para quem quer entrar no mercado de trabalho ou fazer uma transição de carreira, com aulas de <strong>Office 365</strong> do básico ao avançado, <strong>desenvolvimento web</strong>, <strong>inteligência artificial no dia a dia</strong> e <strong>marketing digital</strong>.</p>
+        </div>
+        <div class="fatos">
+          <div class="fato grande"><b>6</b><span>projetos públicos com código aberto e documentação</span></div>
+          <div class="fato"><small>Formação</small><span>ADS na UNISA, conclusão em 2028</span></div>
+          <div class="fato"><small>Educação</small><span>Treinamentos e aulas particulares</span></div>
+          <div class="fato largo"><small>Foco de atuação</small><span>Engenharia de dados, automação com RPA e aplicações web</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="grade">
-        <article class="card dest">
-          <img class="shot" src="https://raw.githubusercontent.com/johnatantech/varejo-data-platform/main/docs/dashboard_visao_geral.png" alt="Dashboard operacional da plataforma de monitoramento de e-commerce" loading="lazy" onerror="this.remove()">
-          <div class="corpo" style="display:flex;flex-direction:column;gap:14px">
-            <span class="tag">Dados · Databricks</span>
-            <h3>Plataforma de Monitoramento de E-commerce</h3>
-            <p>Pipeline de dados de ponta a ponta no Databricks, sobre cerca de 100 mil pedidos reais de um marketplace brasileiro. Arquitetura Medallion (bronze, silver e gold), 15 regras de qualidade de dados, detecção de anomalias com alertas e dashboard operacional, tudo orquestrado por um Workflow.</p>
-            <dl class="metricas">
-              <div><dt>Pedidos analisados</dt><dd>98 mil</dd></div>
-              <div><dt>Regras de qualidade</dt><dd>15</dd></div>
-              <div><dt>Camadas</dt><dd>3</dd></div>
-            </dl>
-            <p>Detectou a Black Friday de 2017 automaticamente, comparando o volume diário com a média móvel de 28 dias.</p>
-            <ul><li>Databricks</li><li>Delta Lake</li><li>SQL</li><li>Python</li><li>Unity Catalog</li><li>Workflows</li><li>Qualidade de dados</li></ul>
+  <section id="stack" class="bloco" style="padding-top:0">
+    <div class="wrap">
+      <span class="rotulo">[ 02 ] Stack</span>
+      <h2 class="titulo">Tecnologias que uso<br><span class="roxo">no dia a dia.</span></h2>
+    </div>
+    <div class="faixa">
+      <div class="trilho">
+        <span>Databricks</span><span>Delta Lake</span><span>SQL</span><span>Python</span><span>Pandas</span><span>Playwright</span><span>C#</span><span>.NET</span><span>ASP.NET Core</span><span>EF Core</span><span>SQL Server</span><span>PostgreSQL</span><span>Angular</span><span>React</span><span>TypeScript</span><span>Tailwind</span><span>Streamlit</span><span>Docker</span><span>GitHub Actions</span><span>Azure</span><span>Git</span>
+        <span aria-hidden="true">Databricks</span><span aria-hidden="true">Delta Lake</span><span aria-hidden="true">SQL</span><span aria-hidden="true">Python</span><span aria-hidden="true">Pandas</span><span aria-hidden="true">Playwright</span><span aria-hidden="true">C#</span><span aria-hidden="true">.NET</span><span aria-hidden="true">ASP.NET Core</span><span aria-hidden="true">EF Core</span><span aria-hidden="true">SQL Server</span><span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Angular</span><span aria-hidden="true">React</span><span aria-hidden="true">TypeScript</span><span aria-hidden="true">Tailwind</span><span aria-hidden="true">Streamlit</span><span aria-hidden="true">Docker</span><span aria-hidden="true">GitHub Actions</span><span aria-hidden="true">Azure</span><span aria-hidden="true">Git</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos" class="bloco" style="padding-top:0">
+    <div class="wrap">
+      <span class="rotulo">[ 03 ] Projetos</span>
+      <h2 class="titulo"><span class="roxo">Projetos</span> que<br>viraram código.</h2>
+
+      <div class="projetos">
+        <article class="card destaque">
+          <div class="tela"><img src="https://raw.githubusercontent.com/johnatantech/varejo-data-platform/main/docs/dashboard_visao_geral.png" alt="Dashboard operacional da plataforma de monitoramento de e-commerce" loading="lazy"></div>
+          <div class="info">
+            <p class="meta"><b>01</b>Databricks · Delta Lake · SQL · Python</p>
+            <h3>Plataforma de Monitoramento de E&#8209;commerce</h3>
+            <p>Pipeline de ponta a ponta sobre pedidos reais de um marketplace brasileiro: arquitetura Medallion, regras de qualidade, detecção de anomalias com alertas e dashboard operacional, orquestrado por Workflow. Detectou a Black Friday de 2017 sozinho.</p>
+            <div class="numeros">
+              <div><b>98 mil</b><span>pedidos analisados</span></div>
+              <div><b>15</b><span>regras de qualidade</span></div>
+              <div><b>3</b><span>camadas</span></div>
+            </div>
             <div class="links">
-              <a href="https://github.com/johnatantech/varejo-data-platform" target="_blank" rel="noopener">Código e documentação ↗</a>
+              <a href="https://github.com/johnatantech/varejo-data-platform" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
             </div>
           </div>
         </article>
 
-        <article class="card dest">
-          <img class="shot" src="img/receitas.png" alt="Tela do app Receitas por ingredientes" loading="lazy" onerror="this.remove()">
-          <div class="corpo" style="display:flex;flex-direction:column;gap:14px">
-            <span class="tag">Full-stack · Online</span>
-            <h3>Receitas por ingredientes</h3>
-            <p>Informe o que tem na geladeira e veja receitas ranqueadas por compatibilidade, com o que você já tem e o que falta. Entrada em português, modo de preparo traduzido e busca compartilhável pela URL.</p>
-            <ul><li>.NET 10</li><li>React</li><li>TypeScript</li><li>Tailwind</li><li>Docker</li><li>xUnit</li></ul>
+        <article class="card destaque inverte">
+          <div class="tela par">
+            <img src="https://raw.githubusercontent.com/johnatantech/rateio/main/docs/app-acertos-celular.png" alt="Tela de acertos do Rateio, com o QR Code do Pix de cada transferência" loading="lazy">
+            <img src="https://raw.githubusercontent.com/johnatantech/rateio/main/docs/app-nova-despesa-celular.png" alt="Tela de nova despesa do Rateio, com conferência da divisão ao vivo" loading="lazy">
+          </div>
+          <div class="info">
+            <p class="meta"><b>02</b>.NET · Angular · EF Core · PostgreSQL</p>
+            <h3>Rateio</h3>
+            <p>Divisor de despesas em grupo que calcula quem deve para quem com o menor número de transferências e gera o Pix copia e cola de cada acerto, com o padrão BR Code do Banco Central implementado do zero. App instalável (PWA) e CI testando dois bancos.</p>
+            <div class="numeros">
+              <div><b>4</b><span>formas de dividir</span></div>
+              <div><b>n − 1</b><span>transferências no máximo</span></div>
+              <div><b>300</b><span>grupos nos testes</span></div>
+            </div>
             <div class="links">
-              <a href="https://receitas-app-eta.vercel.app" target="_blank" rel="noopener">Ver demo ↗</a>
-              <a href="https://github.com/johnatantech/receitas-app" target="_blank" rel="noopener">Código ↗</a>
+              <a href="https://rateioweb.vercel.app" target="_blank" rel="noopener">Abrir o app <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+              <a href="https://github.com/johnatantech/rateio" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <img class="shot" src="img/dashboard.jpg" alt="Tela do Dashboard de esportes" loading="lazy" onerror="this.remove()">
-          <span class="tag">Dashboard</span>
+          <div class="miniatura"><img src="https://raw.githubusercontent.com/johnatantech/DataCleaner/main/docs/painel.png" alt="Painel do DataCleaner" loading="lazy" onerror="this.parentElement.remove()"></div>
+          <p class="meta"><b>03</b>Python · Pandas · Streamlit</p>
+          <h3>DataCleaner</h3>
+          <p>Limpa e valida cadastros de Excel ou CSV (CPF, CNPJ alfanumérico, CEP, telefone e e-mail) e separa válidos de inválidos com a linha de origem e o motivo de cada recusa.</p>
+          <div class="links">
+            <a href="https://datacleaner-johnatan.streamlit.app" target="_blank" rel="noopener">Abrir o app <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+            <a href="https://github.com/johnatantech/DataCleaner" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="miniatura"><img src="https://raw.githubusercontent.com/johnatantech/WEBFLOW-AUTOMATION/main/docs/painel.png" alt="Painel do WebFlow Automation" loading="lazy" onerror="this.parentElement.remove()"></div>
+          <p class="meta"><b>04</b>Python · Playwright · Tkinter</p>
+          <h3>WebFlow Automation</h3>
+          <p>Robô de RPA com painel de controle: execução por etapas, cancelamento imediato, print como evidência de falha e credenciais fora do código, em .env.</p>
+          <div class="links">
+            <a href="https://github.com/johnatantech/WEBFLOW-AUTOMATION" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="miniatura"><img src="img/receitas.png" alt="Tela do app Receitas por ingredientes" loading="lazy" onerror="this.parentElement.remove()"></div>
+          <p class="meta"><b>05</b>.NET 10 · React · TypeScript</p>
+          <h3>Receitas por ingredientes</h3>
+          <p>Informe o que tem na geladeira e veja receitas ranqueadas pelo que você já tem e pelo que falta, com modo de preparo traduzido.</p>
+          <div class="links">
+            <a href="https://receitas-app-eta.vercel.app" target="_blank" rel="noopener">Abrir o app <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+            <a href="https://github.com/johnatantech/receitas-app" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="miniatura"><img src="img/dashboard.jpg" alt="Tela do Dashboard de esportes" loading="lazy" onerror="this.parentElement.remove()"></div>
+          <p class="meta"><b>06</b>JavaScript · Vercel · APIs</p>
           <h3>Dashboard de esportes</h3>
-          <!-- EDITE: descreva o objetivo, os dados usados e o resultado -->
-          <p>Painel interativo para acompanhar dados esportivos, com visualizações e filtros.</p>
-          <ul><li>Dados</li><li>Visualização</li><li>Front-end</li></ul>
+          <p>Painel com dados reais do Brasileirão Série A e da Premier League: tabela com as zonas do campeonato, jogos em andamento, resultados por rodada, próximos jogos, artilharia e assistências. O token da API fica protegido numa função serverless.</p>
           <div class="links">
-            <a href="https://github.com/johnatantech/dashboard-esportes" target="_blank" rel="noopener">Código ↗</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <img class="shot" src="img/careerhub.png" alt="Protótipo do CareerHub" loading="lazy" onerror="this.remove()">
-          <span class="tag">Protótipo</span>
-          <h3>CareerHub</h3>
-          <!-- EDITE: descreva o problema que o projeto resolve e coloque o link certo -->
-          <p>Protótipo de plataforma para organizar a busca por oportunidades de carreira.</p>
-          <ul><li>Produto</li><li>UX</li><li>Protótipo</li></ul>
-          <div class="links">
-            <a href="https://github.com/johnatantech" target="_blank" rel="noopener">Ver no GitHub ↗</a>
+            <a href="https://dashboard-brasileirao-painel.vercel.app" target="_blank" rel="noopener">Abrir o painel <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
+            <a href="https://github.com/johnatantech/dashboard-esportes" target="_blank" rel="noopener">Ver no GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9"/></svg></a>
           </div>
         </article>
       </div>
-      <p class="nota">Veja todos os repositórios em <a href="https://github.com/johnatantech" target="_blank" rel="noopener" style="color:var(--accent)">github.com/johnatantech</a>.</p>
+      <p class="nota">Todos os repositórios em <a href="https://github.com/johnatantech" target="_blank" rel="noopener">github.com/johnatantech</a></p>
     </div>
   </section>
 
-  <section id="experiencia">
-    <div class="wrap dois">
-      <div>
-        <span class="eyebrow">Atuação</span>
-        <h2>Onde eu atuo</h2>
-        <p class="sub">As três frentes em que mais me dedico.</p>
-        <div class="linha">
-          <!-- EDITE: ajuste os textos com a sua realidade -->
-          <div class="item">
-            <h3>Dados e Databricks</h3>
-            <p>Construo pipelines no Databricks com arquitetura Medallion, regras de qualidade, monitoramento e dashboards, transformando dados brutos em indicadores confiáveis para a operação.</p>
-          </div>
-          <div class="item">
-            <h3>Automação e RPA</h3>
-            <p>Transformo tarefas manuais e repetitivas em fluxos automatizados, com RPA e scripts em Python, para reduzir erros e liberar tempo das equipes.</p>
-          </div>
-          <div class="item">
-            <h3>Desenvolvimento web</h3>
-            <p>Crio aplicações completas com .NET, React, TypeScript e Tailwind CSS, com testes automatizados, documentação e deploy em nuvem.</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow">Estudos</span>
-        <h2>Formação</h2>
-        <p class="sub">Sempre aprendendo.</p>
-        <div class="linha">
-          <div class="item">
-            <h3>Análise e Desenvolvimento de Sistemas</h3>
-            <p class="quando">Universidade de Santo Amaro (UNISA) · cursando, conclusão em 2028</p>
-            <p>Graduação tecnológica com foco em programação, banco de dados, engenharia de software e projeto de sistemas.</p>
-          </div>
-          <div class="item">
-            <h3>Cursos e certificações</h3>
-            <p class="quando">Complementares</p>
-            <ul>
-              <li><strong>Santander Open Academy:</strong> Python e Data Analyst</li>
-              <li><strong>Microsoft Learn:</strong> Azure Fundamentals, Microsoft 365, Power Platform, Security, Compliance &amp; Identity e GitHub Foundations</li>
-              <li><strong>Alura:</strong> Python para Dados, AI Native Software Engineering, Desenvolvimento Back-End com Node.js, Desenvolvimento Back-End com .NET, Liderança, Governança de Dados e IA</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contato" class="contato">
+  <section id="experiencia" class="bloco" style="padding-top:0">
     <div class="wrap">
-      <span class="eyebrow">Contato</span>
-      <h2>Vamos conversar?</h2>
-      <p class="sub">Estou aberto a oportunidades e a conversas sobre projetos. O caminho mais rápido é pelo LinkedIn.</p>
-      <div class="cta">
-        <a class="btn main" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">Falar no LinkedIn</a>
-        <a class="btn" href="curriculo.pdf" download>Baixar currículo</a>
-        <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub</a>
+      <span class="rotulo">[ 04 ] Carreira</span>
+      <h2 class="titulo">Experiência<br><span class="roxo">profissional.</span></h2>
+      <div class="linha-tempo">
+        <div class="marco">
+          <p class="quando">Maio 2026 · atualmente</p>
+          <h3>Analista de Operações</h3>
+          <p class="onde">@Target Software · híbrido</p>
+          <ul>
+            <li>Atuação alocada em cliente do setor bancário, na gestão e acompanhamento de processos de ajuizamento e de carteiras de recuperação de crédito;</li>
+            <li>Elaboração e análise de relatórios gerenciais em Excel avançado e acompanhamento de indicadores de desempenho;</li>
+            <li>Automação de controles operacionais e tratamento de dados para apoiar áreas estratégicas e a tomada de decisão;</li>
+            <li>Principais ferramentas: Excel avançado, sistemas bancários e automação de processos.</li>
+          </ul>
+        </div>
+        <div class="marco">
+          <p class="quando">Dezembro 2025 · maio 2026</p>
+          <h3>Analista de QA</h3>
+          <p class="onde">@4Win Tecnologia · híbrido</p>
+          <ul>
+            <li>Validação e garantia da qualidade de sistemas web e mobile para clientes de grande porte, como Uber e Bradesco;</li>
+            <li>Elaboração e execução de testes funcionais, exploratórios, regressivos e automatizados;</li>
+            <li>Validação de requisitos e acompanhamento de todo o ciclo de desenvolvimento, com equipes multidisciplinares;</li>
+            <li>Foco em reduzir riscos em produção e garantir entregas alinhadas aos objetivos de negócio.</li>
+          </ul>
+        </div>
+        <div class="marco">
+          <p class="quando">Junho 2024 · maio 2026</p>
+          <h3>Professor de TI</h3>
+          <p class="onde">@Instituto Futuro Brasileiro</p>
+          <ul>
+            <li>Aulas de Excel avançado e pacote Office para alunos em preparação para o mercado de trabalho;</li>
+            <li>Ensino de desenvolvimento de sites com HTML, CSS e JavaScript;</li>
+            <li>Foco em habilidades práticas e conhecimento atualizado para a empregabilidade dos alunos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="atuacao" class="bloco" style="padding-top:0">
+    <div class="wrap">
+      <span class="rotulo">[ 05 ] Atuação</span>
+      <h2 class="titulo">Onde eu <span class="roxo">atuo.</span></h2>
+      <div class="frentes">
+        <div class="frente"><div class="ico">{ }</div><h3>Dados e Databricks</h3><p>Pipelines com arquitetura Medallion, regras de qualidade, monitoramento e dashboards.</p></div>
+        <div class="frente"><div class="ico">&gt;_</div><h3>Automação e RPA</h3><p>Robôs e scripts em Python que substituem tarefas manuais, com logs e evidência de cada execução.</p></div>
+        <div class="frente"><div class="ico">&lt;/&gt;</div><h3>Desenvolvimento web</h3><p>Aplicações com .NET, Angular e React, com testes automatizados e deploy em nuvem.</p></div>
+        <div class="frente"><div class="ico">?!</div><h3>Educação em tecnologia</h3><p>Treinamentos e aulas particulares para quem quer entrar no mercado ou mudar de carreira: Office 365 do básico ao avançado, desenvolvimento web, IA no dia a dia e marketing digital.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao" class="bloco" style="padding-top:0">
+    <div class="wrap">
+      <span class="rotulo">[ 06 ] Formação</span>
+      <h2 class="titulo">Sempre <span class="roxo">aprendendo.</span></h2>
+      <div class="linha-tempo">
+        <div class="marco">
+          <p class="quando">Cursando · conclusão em 2028</p>
+          <h3>Análise e Desenvolvimento de Sistemas</h3>
+          <p class="onde">@UNISA</p>
+          <p>Graduação tecnológica com foco em programação, banco de dados, engenharia de software e projeto de sistemas.</p>
+        </div>
+        <div class="marco">
+          <p class="quando">Complementares</p>
+          <h3>Cursos e certificações</h3>
+          <ul>
+            <li><strong>Santander Open Academy:</strong> Python e Data Analyst</li>
+            <li><strong>Microsoft Learn:</strong> Azure Fundamentals, Microsoft 365, Power Platform, Security, Compliance &amp; Identity e GitHub Foundations</li>
+            <li><strong>Alura:</strong> Python para Dados, AI Native Software Engineering, Back-End com Node.js e com .NET, Liderança, Governança de Dados e IA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="bloco contato" style="padding-top:0">
+    <div class="wrap">
+      <div class="caixa">
+        <span class="rotulo">[ 07 ] Contato</span>
+        <h2 class="titulo">Vamos <span class="roxo">conversar?</span></h2>
+        <p class="sub">Estou aberto a oportunidades, projetos, treinamentos e aulas particulares. O caminho mais rápido é pelo LinkedIn.</p>
+        <div class="cta">
+          <a class="btn main" href="https://www.linkedin.com/in/johnatan-flores-67595a221" target="_blank" rel="noopener">Falar no LinkedIn</a>
+          <a class="btn" href="https://github.com/johnatantech" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="curriculo.pdf" download>Baixar currículo</a>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© <span id="ano">2026</span> Johnatan Flores. Feito com HTML, CSS e um pouco de café.</div>
+  <div class="wrap"><span>© <span id="ano">2026</span> Johnatan Flores</span><span>feito com HTML, CSS e café</span></div>
 </footer>
 
 <script>
   document.getElementById("ano").textContent = new Date().getFullYear();
+  const calmo = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Tema: segue o sistema e lembra a escolha manual (sem quebrar se o storage estiver bloqueado)
-  const raiz = document.documentElement;
-  try {
-    const salvo = localStorage.getItem("tema");
-    if (salvo) raiz.dataset.theme = salvo;
-  } catch (e) {}
+  // Digitação dos papéis
+  const papeis = ["Engenharia de Dados", "Automação & RPA", "Desenvolvimento Full Stack", "Educação em Tecnologia"];
+  const alvo = document.getElementById("papel");
+  if (!calmo) {
+    let i = 0, n = alvo.textContent.length, apagando = true;
+    (function passo() {
+      const t = papeis[i];
+      n += apagando ? -1 : 1;
+      alvo.textContent = t.slice(0, n);
+      let espera = apagando ? 40 : 80;
+      if (!apagando && n === t.length) { apagando = true; espera = 1800; }
+      else if (apagando && n === 0) { apagando = false; i = (i + 1) % papeis.length; espera = 300; }
+      setTimeout(passo, espera);
+    })();
+  }
 
-  document.getElementById("tema").addEventListener("click", () => {
-    const escuro = raiz.dataset.theme
-      ? raiz.dataset.theme === "dark"
-      : matchMedia("(prefers-color-scheme: dark)").matches;
-    const novo = escuro ? "light" : "dark";
-    raiz.dataset.theme = novo;
-    try { localStorage.setItem("tema", novo); } catch (e) {}
-  });
+  // Rede de pontos no fundo do topo
+  const cv = document.getElementById("rede"), ctx = cv.getContext("2d");
+  let pts = [], w = 0, h = 0, rodando = true;
+  function medir() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    w = cv.offsetWidth; h = cv.offsetHeight;
+    cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const qtd = Math.round(Math.min(60, w * h / 22000));
+    pts = Array.from({ length: qtd }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25 }));
+  }
+  function desenhar() {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of pts) {
+      if (!calmo) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > w) p.vx *= -1; if (p.y < 0 || p.y > h) p.vy *= -1; }
+      ctx.fillStyle = "rgba(168,85,247,0.55)"; ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 7); ctx.fill();
+    }
+    for (let a = 0; a < pts.length; a++) for (let b = a + 1; b < pts.length; b++) {
+      const dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = Math.hypot(dx, dy);
+      if (d < 140) { ctx.strokeStyle = `rgba(168,85,247,${0.18 * (1 - d / 140)})`; ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y); ctx.stroke(); }
+    }
+    if (!calmo && rodando) requestAnimationFrame(desenhar);
+  }
+  medir(); desenhar();
+  addEventListener("resize", () => { medir(); if (calmo) desenhar(); });
+  new IntersectionObserver(([e]) => { const antes = rodando; rodando = e.isIntersecting; if (rodando && !antes && !calmo) desenhar(); }).observe(cv);
 </script>
+</body>
+</html>
